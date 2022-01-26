@@ -1,41 +1,43 @@
-[
-  {
-    "id": 1,
-    "titulo": "Ecuador",
-    "descripcion": "Ecuador es un pais",
-    "urlImage": "fffff",
-    "faculta": "",
-    "decano": "",
-    "ubicacion": "",
-    "posicion": {
-      "latitude": 2,
-      "longitude": 55
+{
+  "sitios": [
+    {
+      "id": 1,
+      "titulo": "Ecuador",
+      "descripcion": "Ecuador es un pais",
+      "urlImage": "fffff",
+      "faculta": "",
+      "decano": "",
+      "ubicacion": "",
+      "posicion": {
+        "latitude": 2,
+        "longitude": 55
+      }
+    },
+    {
+      "id": 1,
+      "titulo": "Ecuador",
+      "descripcion": "Ecuador es un pais",
+      "urlImage": "fffff",
+      "faculta": "",
+      "decano": "",
+      "ubicacion": "",
+      "posicion": {
+        "latitude": 2,
+        "longitude": 55
+      }
+    },
+    {
+      "id": 1,
+      "titulo": "Ecuador",
+      "descripcion": "Ecuador es un pais",
+      "urlImage": "fffff",
+      "faculta": "",
+      "decano": "",
+      "ubicacion": "",
+      "posicion": {
+        "latitude": 2,
+        "longitude": 55
+      }
     }
-  },
-  {
-    "id": 1,
-    "titulo": "Ecuador",
-    "descripcion": "Ecuador es un pais",
-    "urlImage": "fffff",
-    "faculta": "",
-    "decano": "",
-    "ubicacion": "",
-    "posicion": {
-      "latitude": 2,
-      "longitude": 55
-    }
-  },
-  {
-    "id": 1,
-    "titulo": "Ecuador",
-    "descripcion": "Ecuador es un pais",
-    "urlImage": "fffff",
-    "faculta": "",
-    "decano": "",
-    "ubicacion": "",
-    "posicion": {
-      "latitude": 2,
-      "longitude": 55
-    }
-  }
-]
+  ]
+}
