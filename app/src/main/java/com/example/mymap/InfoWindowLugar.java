@@ -49,6 +49,9 @@ public class InfoWindowLugar implements GoogleMap.InfoWindowAdapter {
 
         ((TextView) mWindow.findViewById(R.id.tvTitle)).setText(sitio.titulo);
         ((TextView) mWindow.findViewById(R.id.tvDescription)).setText(sitio.descripcion);
+        ((TextView) mWindow.findViewById(R.id.tvfaculta)).setText(sitio.faculta);
+        ((TextView) mWindow.findViewById(R.id.tvdecano)).setText(sitio.decano);
+        ((TextView) mWindow.findViewById(R.id.tvubicacion)).setText(sitio.ubicacion);
 
         Glide.with(mWindow).load(sitio.urlImage).into(image);
 

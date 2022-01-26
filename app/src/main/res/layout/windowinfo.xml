@@ -3,6 +3,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:background="#C3FFFFFF"
+    android:padding="10dp"
     android:layout_height="match_parent">
 
     <ImageView
@@ -23,13 +24,44 @@
             android:textSize="25dp"
             android:textStyle="bold"
             android:text="title"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             />
         <TextView
             android:id="@+id/tvDescription"
             android:textSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             android:text="description"
+            />
+        <TextView
+            android:id="@+id/tvfaculta"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="faculta"
+            />
+        <TextView
+            android:id="@+id/tvdecano"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="decano"
+            />
+        <TextView
+            android:id="@+id/tvubicacion"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="ubicacion"
             />
     </LinearLayout>
 
