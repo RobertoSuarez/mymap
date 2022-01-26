@@ -1,6 +1,5 @@
 package com.example.mymap;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -48,10 +45,10 @@ public class InfoWindowLugar implements GoogleMap.InfoWindowAdapter {
 
         Sitio sitio = this.GetSitionAPI(ID);
         if (ID == 0) {
-            sitio.Titulo = "Noruega";
+            sitio.titulo = "Noruega";
         }
 
-        ((TextView) mWindow.findViewById(R.id.tvTitle)).setText(sitio.Titulo);
+        ((TextView) mWindow.findViewById(R.id.tvTitle)).setText(sitio.titulo);
 
 
 
@@ -63,14 +60,14 @@ public class InfoWindowLugar implements GoogleMap.InfoWindowAdapter {
     // Trae los datos desde la api
     public Sitio GetSitionAPI(int ID) {
         return new Sitio(){{
-                ID = 1;
-                Titulo = "Ecuador";
-                Descripcion = "Ecuador es un Pais";
-                UrlImage = "";
-                Faculta = "Ciencia de la ingenieria";
-                Decano = "Roberto El doc";
-                Ubicacion = "Quevedo ciudad de la furia";
-                Posicion = new LatLng(-0.10820363732123867, -78.47378477657662);
+                id = 1;
+                titulo = "Ecuador";
+                descripcion = "Ecuador es un Pais";
+                urlImage = "";
+                faculta = "Ciencia de la ingenieria";
+                decano = "Roberto El doc";
+                ubicacion = "Quevedo ciudad de la furia";
+                posicion = new LatLng(-0.10820363732123867, -78.47378477657662);
         }};
     }
     

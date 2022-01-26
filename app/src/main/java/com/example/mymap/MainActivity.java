@@ -1,19 +1,16 @@
 package com.example.mymap;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,7 +22,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
@@ -57,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("Marker in Ecuader")).setTag(1);
         //map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
+        this.AddMarker();
+
 
         map.setInfoWindowAdapter(new InfoWindowLugar(this, "personal"));
 
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void AddMarker() {
         JsonArrayRequest arrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
-                "",
+                "https://my-json-server.typicode.com/RobertoSuarez/mymap/sitios",
                 null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -78,7 +76,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         // Mostramos
                         for (int i = 0; i < sitios.length; i++) {
-                            System.out.println(sitios[i].Titulo);
+                            System.out.println(sitios[i].titulo);
+
+                            map.addMarker(new MarkerOptions()
+                                    .position(sitios[i].posicion)
+                                    .title(sitios[i].titulo)).setTag(sitios[i].id);
+
                         }
 
                     }
@@ -90,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 }
         );
+        cola.add(arrayRequest);
     }
 
     public void onChangeTypeMap(View v) {

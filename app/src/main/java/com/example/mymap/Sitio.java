@@ -3,14 +3,14 @@ package com.example.mymap;
 import com.google.android.gms.maps.model.LatLng;
 
 public class Sitio {
-    public int ID;
-    public String Titulo;
-    public String Descripcion;
-    public String UrlImage;
-    public String Faculta;
-    public String Decano;
-    public String Ubicacion;
-    public LatLng Posicion;
+    public int id;
+    public String titulo;
+    public String descripcion;
+    public String urlImage;
+    public String faculta;
+    public String decano;
+    public String ubicacion;
+    public LatLng posicion;
 
     public Sitio() {
     }

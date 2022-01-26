@@ -9,34 +9,34 @@
       "decano": "",
       "ubicacion": "",
       "posicion": {
-        "latitude": 2,
-        "longitude": 55
+        "latitude": -1.0312547579596132,
+        "longitude": -79.46520404435826
       }
     },
     {
-      "id": 1,
-      "titulo": "Ecuador",
+      "id": 2,
+      "titulo": "Brazil",
       "descripcion": "Ecuador es un pais",
       "urlImage": "fffff",
       "faculta": "",
       "decano": "",
       "ubicacion": "",
       "posicion": {
-        "latitude": 2,
-        "longitude": 55
+        "latitude": -6.064452411854889,
+        "longitude": -56.8146416490793
       }
     },
     {
-      "id": 1,
-      "titulo": "Ecuador",
-      "descripcion": "Ecuador es un pais",
+      "id": 3,
+      "titulo": "Bolivia",
+      "descripcion": "Bolivia es un pais",
       "urlImage": "fffff",
       "faculta": "",
       "decano": "",
       "ubicacion": "",
       "posicion": {
-        "latitude": 2,
-        "longitude": 55
+        "latitude": -16.2335343335205,
+        "longitude": -64.38748542407605
       }
     }
   ]
