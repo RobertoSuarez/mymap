@@ -3,11 +3,13 @@ package com.example.mymap;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -35,22 +37,20 @@ public class InfoWindowLugar implements GoogleMap.InfoWindowAdapter {
     @Nullable
     @Override
     public View getInfoWindow(@NonNull Marker marker) {
-        int ID = 0;
+        Sitio sitio;
         try {
-            ID = (int)marker.getTag();
+            sitio = (Sitio)marker.getTag();
         } catch (Exception ex) {
             System.out.println(ex.toString());
             return this.mWindow;
         }
 
-        Sitio sitio = this.GetSitionAPI(ID);
-        if (ID == 0) {
-            sitio.titulo = "Noruega";
-        }
+        ImageView image = (ImageView)mWindow.findViewById(R.id.image);
 
         ((TextView) mWindow.findViewById(R.id.tvTitle)).setText(sitio.titulo);
+        ((TextView) mWindow.findViewById(R.id.tvDescription)).setText(sitio.descripcion);
 
-
+        Glide.with(mWindow).load(sitio.urlImage).into(image);
 
 
 

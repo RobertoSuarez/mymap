@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         this.map = googleMap;
 
 
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(-34, 151))
-                .title("Marker in Sydney")).setTag(0);
-
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(-0.10820363732123867, -78.47378477657662))
-                .title("Marker in Ecuader")).setTag(1);
+//        map.addMarker(new MarkerOptions()
+//                .position(new LatLng(-34, 151))
+//                .title("Marker in Sydney")).setTag(0);
+//
+//        map.addMarker(new MarkerOptions()
+//                .position(new LatLng(-0.10820363732123867, -78.47378477657662))
+//                .title("Marker in Ecuader")).setTag(1);
         //map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         this.AddMarker();
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                             map.addMarker(new MarkerOptions()
                                     .position(sitios[i].posicion)
-                                    .title(sitios[i].titulo)).setTag(sitios[i].id);
+                                    .title(sitios[i].titulo)).setTag(sitios[i]);
 
                         }
 
