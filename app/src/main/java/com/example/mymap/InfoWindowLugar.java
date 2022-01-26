@@ -9,7 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
 public class InfoWindowLugar implements GoogleMap.InfoWindowAdapter {
@@ -35,15 +38,41 @@ public class InfoWindowLugar implements GoogleMap.InfoWindowAdapter {
     @Nullable
     @Override
     public View getInfoWindow(@NonNull Marker marker) {
+        int ID = 0;
+        try {
+            ID = (int)marker.getTag();
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            return this.mWindow;
+        }
 
-        System.out.println(marker.getTag());
-        TextView title = (TextView) mWindow.findViewById(R.id.tvTitle);
-        TextView description = (TextView) mWindow.findViewById(R.id.tvDescription);
+        Sitio sitio = this.GetSitionAPI(ID);
+        if (ID == 0) {
+            sitio.Titulo = "Noruega";
+        }
 
-        title.setText(marker.getTitle());
-        description.setText(marker.getSnippet());
+        ((TextView) mWindow.findViewById(R.id.tvTitle)).setText(sitio.Titulo);
+
+
+
 
 
         return mWindow;
     }
+
+    // Trae los datos desde la api
+    public Sitio GetSitionAPI(int ID) {
+        return new Sitio(){{
+                ID = 1;
+                Titulo = "Ecuador";
+                Descripcion = "Ecuador es un Pais";
+                UrlImage = "";
+                Faculta = "Ciencia de la ingenieria";
+                Decano = "Roberto El doc";
+                Ubicacion = "Quevedo ciudad de la furia";
+                Posicion = new LatLng(-0.10820363732123867, -78.47378477657662);
+        }};
+    }
+    
+
 }

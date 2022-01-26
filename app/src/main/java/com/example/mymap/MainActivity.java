@@ -8,6 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -15,9 +22,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
+    public RequestQueue cola;
     private GoogleMap map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        cola = Volley.newRequestQueue(this);
     }
 
     @Override
@@ -37,17 +50,46 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(-34, 151))
-                .title("Marker in Sydney")).setTag("sydney");
+                .title("Marker in Sydney")).setTag(0);
 
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(-0.10820363732123867, -78.47378477657662))
-                .title("Marker in Ecuader")).setTag("ecuadro");
+                .title("Marker in Ecuader")).setTag(1);
         //map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
 
         map.setInfoWindowAdapter(new InfoWindowLugar(this, "personal"));
 
 
+    }
+
+    public void AddMarker() {
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                "",
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Gson gson = new Gson();
+
+                        // Deserializamos
+                        Sitio[] sitios = gson.fromJson(response.toString(), Sitio[].class);
+
+                        // Mostramos
+                        for (int i = 0; i < sitios.length; i++) {
+                            System.out.println(sitios[i].Titulo);
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
     }
 
     public void onChangeTypeMap(View v) {
@@ -84,4 +126,5 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         marker.showInfoWindow();
     }
+
 }
