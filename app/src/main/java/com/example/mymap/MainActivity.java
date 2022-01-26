@@ -82,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     .position(sitios[i].posicion)
                                     .title(sitios[i].titulo)).setTag(sitios[i]);
 
+                            if (sitios.length - 1 == i) {
+                                map.moveCamera(CameraUpdateFactory.newLatLng(sitios[i].posicion));
+                            }
+
                         }
 
                     }
